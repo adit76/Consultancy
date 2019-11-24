@@ -1,0 +1,678 @@
+<html>
+	<head>
+	<title>University</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		font-family: sans-serif;
+	}
+
+
+	.nav-top{
+		overflow: auto;
+		color: white;
+		padding: 10px 20px;
+		background: black;
+	}
+
+	.nav-top .top-left{
+		float: left;
+	}
+
+	.nav-top .top-left:hover h5{
+		color: #0fafa3;
+	}
+
+	.nav-top .top-right{
+		float: right;
+	}
+
+	.nav-top .top-right ul li{
+		list-style: none;
+		display: inline-block;
+		padding: 0 15px;
+		cursor: pointer;
+	}
+
+	.nav-top .top-right ul li:hover{
+		color: #859398;
+	}
+
+	.nav-bottom{
+		padding: 5px;
+	}
+
+	.nav-bottom .nav-items ul{
+		text-align: center;
+		color: #859398;
+	}
+
+	.nav-bottom .nav-items ul>li{
+		list-style: none;
+		display: inline-block;
+		padding: 15px 20px;
+		cursor: pointer;
+		border-bottom: 2px solid transparent;
+		transition: 0.3s ease-in-out;
+	}
+
+	.nav-bottom .nav-items>ul li:hover{
+		border-bottom: 2px solid #859398;
+		color: black;
+	}	
+
+	.nav-bottom .user{
+		display: inline-block;
+		position: absolute;
+		padding: 5px;
+		right: 40px;
+		top: 48px;
+		cursor: pointer;
+	}
+
+	.nav-bottom .user i{
+		font-size: 20px;
+		color: #FF7052;
+	}
+
+	.nav-bottom .service .sub-menu{
+		visibility: hidden;
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		background: white;
+		color: black;
+		transition: all 0.3s ease-in-out;
+		transform: translateY(0em);
+		display: flex;
+		flex-direction: column;
+		left: 395px;
+		z-index: 999;
+		border-bottom: 2px solid transparent;
+	}
+
+	.nav-bottom .service:hover .sub-menu{
+		visibility: visible;
+		transform: translateY(1.2em);
+		opacity: 1;
+		
+	}
+
+	.nav-bottom .service .sub-menu2{
+		visibility: hidden;
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		background: white;
+		color: black;
+		transition: all 0.3s ease-in-out;
+		transform: translateY(0em);
+		display: flex;
+		flex-direction: column;
+		left: 545px;
+		z-index: 999;
+		border-bottom: 2px solid transparent;
+	}
+
+	.sub-menu2 li:hover{
+		background-color: #D3D3D3;
+		cursor: pointer;
+	}
+
+	.sub-menu li:hover{
+		background-color: #D3D3D3;
+		cursor: pointer;
+	}
+
+
+	.nav-bottom .service:hover .sub-menu2{
+		visibility: visible;
+		transform: translateY(1.2em);
+		opacity: 1;
+	}
+
+
+	.main .banner video{
+		width: 100%;
+	}
+
+	
+
+	.container{
+		display: flex;
+		justify-content: space-around;
+		background: linear-gradient(to bottom, #b0e0e6 0%, #fff 100%);
+	}
+
+	.container .apps{
+		width: 600px;
+		padding: 50px;
+	}
+
+
+	.container .apps img{
+		width: 150px;
+		height: 50px;
+		margin-left: 38%;
+		cursor: pointer;
+	}
+
+	.container .apps h2{
+		text-align: center;
+	}
+
+	.container .apps p{
+		padding: 20px 0;
+	}
+
+	.container .tracker{
+		background-image: url(tracker.jpg);
+		padding: 50px 100px;
+		margin-right: -65px;
+		width: 250px;
+		/*opacity: 0.8*/;
+	}
+
+	.container .tracker h2{
+		color: white;
+		text-align: center;
+	}
+
+	.container .tracker input{
+		background-color: transparent;
+		padding: 5px;
+		border-radius: 2px;
+		margin: 30px;
+		border: 2px solid #FF7052;
+		color: white;
+	}
+
+	.container .tracker button{
+		background-color: #FF7052;
+		opacity: 1;
+		padding: 5px;
+		border-radius: 5px;
+		border: 2px solid white;
+		color: white;
+		margin-left: 70px;
+	}
+
+	.container .tracker input::placeholder{
+		color: #FF7052;
+		opacity: 1;
+	}
+
+	.search{
+		padding: 5px;
+		position: absolute;
+		top: 350px;
+		left: 350px;
+	}
+
+	.search input{
+		padding: 10px;
+	}
+
+	.search button{
+		padding: 10px;
+		background-color: #1BBA9A;
+		color: white;
+		border: 1px solid black;
+		transition: 0.3s ease;
+	}
+
+	.search button:hover{
+		background: #2b967f;
+	}
+
+	.search .class button{
+		background-color: black;
+		color: white;
+		transition: 0.3s ease;
+	}
+ 
+
+	.search .inner-search{
+		padding: 5px;
+		background-color: rgba(255, 255, 255, 0.7);
+	}
+
+
+
+	#login{
+		position: absolute;
+		width: 250px;
+		background: white;
+		display: flex;
+		flex-direction: column;
+		z-index: 999;
+		top: 96px;
+		right: 10px;
+		visibility: hidden;
+		opacity: 0;
+		transition: 0.3s ease;
+	}
+
+	#login h3{
+		background: #FF7052;
+		color: white;
+		padding: 10px;
+	}
+
+	#login input{
+		padding: 10px;
+		margin: 10px;
+		border-radius: 5px;
+	}
+
+	#login button{
+		width: 80px;
+		padding: 5px 10px;
+		margin-left: 82px;
+		background-color: #FF7052;
+		border: none;
+		border-radius: 2px; 
+		color: white;
+		margin-top: 15px;
+	}
+
+	#login a{
+		font-size: 12px;
+		text-align: center;
+		margin: 10px;
+	}
+
+	.footer .footer-top{
+		background: #201E1C;
+		color: white;
+		display: flex;
+		justify-content: space-around;
+		padding: 20px;
+
+	}
+
+	.footer-top h3{
+		text-align: center;
+		text-decoration: underline;
+	}
+
+	.footer .footer-top ul li{
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		font-size: 13px;
+	}
+
+	.footer .footer-top .social .icons{
+		margin-top: 10px;
+		border: 2px solid #77716b;
+		height: 40px;
+	}
+
+	.footer .footer-top .social .icons i{
+		padding: 10px 20px; 
+		font-size: 18px;
+		transition: all 0.2s ease-out;
+	}
+
+	.footer .footer-top .social .icons i:hover{
+			color: black !important;
+		transform: scale(1.3);
+	}
+
+	.footer .footer-top .social .cards{
+		padding: 20px 10px;
+		border: 2px solid #77716b;
+		margin-top: 20px;
+	}
+
+	.social .cards .text{
+		position: absolute;
+		margin-top: -30px;
+		background-color: #201e1c;
+		padding: 3px;
+	}
+
+	.footer .footer-top .social .cards img{
+		width: 320px;
+		height: 100px;
+	}
+
+	.footer .footer-top .social .apps{
+		margin-top: 20px;
+		border: 2px solid #77716b;
+		padding: 20px 10px;
+	}
+
+	.footer .footer-top .social .apps img{
+		width: 150px;
+		height:53px;
+		margin: 5px;
+		border-radius: 5px;
+	}
+
+	.social .apps .text2{
+		position: absolute;
+		margin-top: -30px;
+		background-color: #201e1c;
+		padding: 3px;
+	}
+
+	.footer .footer-bottom{
+		width: auto;
+		background-color: black;
+		color: white;
+		padding: 10px 0;
+	}
+
+	.footer .footer-bottom p{
+		text-align: center;
+	}
+
+	.clients{
+		background-image: url(client.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	.clients .overlay{
+		background-color: rgba(36, 70, 105, 0.74); 
+		padding: 50px;
+	}
+
+	
+
+	.clients h1{
+		text-align: center;
+		margin-bottom: 20px;
+		color: white;
+	}
+
+	.clients .client{
+		border: 1px solid white;
+		padding: 20px;
+		background-color: rgba(255, 255, 255, 0.7);
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		
+	}
+
+	.clients .client .client1{
+		display: flex;
+		justify-content: space-around;
+		padding: 30px 0;
+		min-width: 100%;
+	}
+
+	.clients .client .client1 p{
+		padding: 10px 0;
+		width: 600px;
+		text-align: justify;
+	}
+
+	.clients .overlay .image img{
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+	}
+
+	
+
+
+	.client #left:hover{
+		background-image: linear-gradient(to right, black , transparent);
+		
+	}
+
+	.client #right:hover{
+		background-image: linear-gradient(to left, black , transparent);
+	}
+	</style>
+	</head>
+
+	<body>
+		<!-- NAVIGATION -->
+		
+
+		<!-- END OF NAVIGATION -->
+
+		 <div class="main">
+
+		 	<div class="navigation">
+			<div class="nav-top">
+				<div class="top-left">
+					<h6 style="display: inline-block;">Download Our &nbsp;<h5 style="display: inline-block;">App</h5></h6>
+				</div>
+				<div class="top-right">
+					<ul>
+						<li><h6>HOME</h6></li>
+						<li><h6>ABOUT</h6></li>
+						<li><h6>CONTACT</h6></li>
+						<li><h6>NEWS</h6></li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav-bottom">
+				<div class="nav-items">
+					<ul>
+						<li><h5><i class="fas fa-home"></i> Home</h5></li>
+						<li class="service"><h5>For Students <i class="fas fa-caret-down"></i></h5>
+							<ul class="sub-menu">
+								<li style="padding: 10px 30px;">Scholarship</li>
+								<li style="padding: 10px 30px;">Register</li>
+								<li style="padding: 10px 30px;">Courses</li>
+								<li style="padding: 10px 30px;">Fee Structure</li>
+								<li style="padding: 10px 30px;">Browse Institions</li>
+							</ul>
+						</li>
+						<li class="service"><h5>For Institution <i class="fas fa-caret-down"></i></h5>
+							<ul class="sub-menu2">
+								<li style="padding: 10px 30px;">Services</li>
+								<li style="padding: 10px 30px;">Benefits</li>
+								<li style="padding: 10px 30px;">Subscription Plans</li>
+								<li style="padding: 10px 30px;">Client Speak</li>
+								<li style="padding: 10px 30px;">Browse Consultants</li>
+								<li style="padding: 10px 30px;">Register</li>
+							</ul>
+						</li>
+						<li><h5>For University</h5></li>
+						<li><h5>Events</h5></li>
+						<li><h5>Forums</h5></li>
+					</ul>
+				</div>
+
+				<div class="user" onclick = "myFunction()">
+					<i class="fas fa-user"></i><i class="fas fa-caret-down" style="color: black;"></i></i>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="login">
+			<h3>Login</h3>
+			<input type="text" placeholder="Username">
+			<input type="password" placeholder="Password">
+			<button type="button">Login</button>
+			<a href="#">Register</a>
+		</div>
+
+		 	<div class="banner">
+		 		<img src="ban.jpg" style="width: 100%; height: 90vh;">
+		 	</div>
+
+
+
+		 	<div class="search">
+		 		<div class="class">
+		 			<button type="button">Institute</button>
+		 			<button type="button">Teachers</button>
+		 			<button type="button">Students</button>
+		 		</div>
+		 		<div class="inner-search">
+		 		<input type="text" placeholder="Country">
+		 		<input type="text" placeholder="University">
+		 		<input type="text" placeholder="Location">
+		 		<button type="button">Search <i class="fas fa-search"></i></button>
+		 		</div>
+		 	</div>
+
+		 	<div class="container">
+		 		<div class="apps">
+		 			<h2>Our Apps</h2>
+		 			<p>Get the latest news from the Express straight to your phone and tablet with our official apps. Available from the App Store and Google Play access your favourite newspaper at the touch of a button wherever you are.</p>
+		 			<a href="https://play.google.com/store?hl=en"><img src="playstore.png"></a>
+		 		</div>
+		 		<div class="tracker">
+		 			<h2>Track Your Progress</h2>
+		 			<form>
+		 				<input type="text" placeholder="Track ID">
+		 				<br>
+		 				<button type="button">Track Now</button>
+		 			</form>
+		 		</div>
+		 	</div>
+		</div> 
+
+		<div class="clients">
+			<div class="overlay">
+			<h1>Clients Speak</h1>
+			<div class="client">
+				
+				<div class="client1">
+				<div class="text">
+					<h3>Bill Gates</h3>
+					<h5>Mafia Don</h5>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				</div>
+				<div class="image">
+					<img src="person1.jpg">
+				</div>
+				</div>
+
+				<div class="client1">
+					<div class="image">
+						<img src="person2.jpg">
+					</div>
+					<div class="text">
+						<h3>Niush Sitaula</h3>
+						<h5>Web Developer</h5>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					</div>
+				</div>
+
+
+				<div class="client1">
+				<div class="text">
+					<h3>Ram Khatioda</h3>
+					<h5>Something</h5>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				</div>
+				<div class="image">
+					<img src="person3.jpg">
+				</div>
+				</div>
+			</div> 
+		</div>
+		</div>
+
+
+
+		<div class="footer">
+			<div class="footer-top">
+				<div class="part1">
+					<h3>Study Abroad</h3>
+					<ul>
+						<li>Australia</li>
+						<li>United States</li>
+						<li>Canada</li>
+						<li>United Kingdom</li>
+						<li>India</li>
+						<li>South Africa</li>
+					</ul>
+				</div>
+				<div class="part2">
+					<h3>Quick Links</h3>
+					<ul>
+						<li>European Summit 2018</li>
+						<li>Education Certificate</li>
+						<li>Scouts Nepal</li>
+						<li>UNICEF</li>
+						<li>Find Consultants</li>
+						<li>Find Institutes</li>
+						<li>Find Schools</li>
+						<li>Visa Information</li>
+						<li>Certification</li>
+					</ul>
+				</div>
+				<div class="part3">
+					<h3>Support</h3>
+					<ul>
+						<li>Privacy Policy</li>
+						<li>Terms and Conditions</li>
+						<li>Refund Policy</li>
+					</ul>
+				</div>
+				<div class="social">
+					<h3>Social</h3>
+					<div class="icons">
+						<i class="fab fa-facebook-f" style="color:  #3B5998;"></i>
+						<i class="fab fa-twitter" style="color: #00ACED;"></i>
+						<i class="fab fa-google-plus-g" style="color: #DC4A3D;"></i>
+						<i class="fab fa-linkedin-in" style="color: #0274B3;"></i>
+						<i class="fab fa-instagram" style="color: black;"></i>
+						<i class="fab fa-youtube" style="color: #FD2725"></i>
+					</div>
+					<div class="cards">
+						<div class="text">
+							<p>Secure Payments By</p>
+						</div>
+						<img src="master.png">
+					</div>
+					<div class="apps">
+						<div class="text2">
+							<p>Get Our Apps On</p>
+						</div>
+						<img src="playstore.png">
+						<img src="applestore.png" style="border: 1px solid white; width: 148px !important; height: 48px !important;">
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>Designed by Lintend</p>
+			</div>
+		</div>
+
+		<script>
+			function myFunction(){
+				var x = document.getElementById("login");
+				if (x.style.visibility == "visible"){
+					x.style.visibility = "hidden";
+					x.style.opacity = "0";
+				} else{
+				 	x.style.visibility = "visible";
+				 	x.style.opacity = "1";
+
+				}
+			}
+
+
+
+s
+
+
+
+
+			
+		</script>
+	</body>
+</html>
